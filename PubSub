@@ -1,0 +1,14 @@
+> gcloud services enable pubsub.googleapis.com
+> gcloud pubSub topics create my-topic
+> gcloud pubSub subcriptions create my channel1--topic=java1
+> gcloud pubSub topics publish my-topic--message="Hello,Pub/Sub!"
+> gcloud pubSub Subcriptions pull my-Subcriptions--auto-ack
+
+IN TERMINAL1
+> gcloud pubSub Subcriptions pull my-Subcriptions--auto-ack --limit=3
+
+IN TERMINAL2
+> gcloud pubSub topics publish my-topic--message="Message1"
+> gcloud pubSub topics publish my-topic--message="Message2"
+> gcloud pubSub Subcriptions delete my-Subscription
+> gcloud pubSub topics delete my-topic
