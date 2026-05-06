@@ -1,0 +1,26 @@
+vi app.py
+
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello Docker from Killercoda!"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)
+
+vi Dockerfile
+
+FROM python:3.10-slim
+WORKDIR /app
+COPY app.py .
+RUN pip install flask
+EXPOSE 8080
+CMD ["python3", "app.py"]
+
+> docker build -t flask-webapp .
+> docker run -d -p 8080:8080 flask-webapp
+> docker ps
+> docker stop <container_id>
+> docker run -d -p 5000:5000 flask-webapp
